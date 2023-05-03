@@ -6,10 +6,13 @@ CC = @cc
 CFLAGS = -Wall -Wextra -Werror -g
 
 SRC =	push_swap.c	\
-		parse.c 	\
-		error.c		\
 		actions.c	\
 		actions2.c	\
+		actions3.c	\
+		create_stack.c	\
+		error.c		\
+		parse.c 	\
+		sort.c		\
 
 OBJ = $(SRC:.c=.o)
 
@@ -89,12 +92,14 @@ On_IWhite='\033[0;107m'   # White
 MSG1 = @echo ${IGreen}"Compiled Successfully ✔︎"${Color_Off}
 MSG2 = @echo ${IYellow}"Cleaned Successfully ✔︎"${Color_Off}
 MSG3 = @echo ${ICyan}"Cleaned ${NAME} Successfully ✔︎"${Color_Off}
+HOWTO = @echo ${IRed}"To run the program do: ./${NAME} <args>"${Color_Off}
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	$(MSG1)
+	${HOWTO}
 
 clean:
 	@/bin/rm -f $(OBJ) $(B_OBJ)

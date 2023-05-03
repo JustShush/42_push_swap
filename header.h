@@ -6,7 +6,7 @@
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:19:34 by dimarque          #+#    #+#             */
-/*   Updated: 2023/04/28 18:57:04 by dimarque         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:04:43 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,52 @@
 
 typedef struct s_stack
 {
-	int data;
-	int step;
-	int rotate;
-	struct s_stack *next;
-} stack_t;
+	int				data;
+	
+	struct s_stack	*next;
+}	t_stack;
 
 typedef struct s_stacks
 {
-	int count_a;
-	int count_b;
-	int min;
-	int max;
-	int med;
-	stack_t stack;
-} stacks_t;
+	int		count_a;
+	int		count_b;
+	int		min;
+	int		max;
+	int		med;
+	t_stack	**a;
+	t_stack	b;
+}	t_stacks;
 
-void ft_error();
+void	ft_error(void);
+
+// in actions.c
+void	sa(t_stack **a, int i);
+void pa(t_stack *a, t_stack *b, int i);
+void pb(t_stack *a, t_stack *b, int i);
+// -------------------
+
+// in actions2.c
+void	ra(t_stack **a, int i);
+void	rb(t_stack **a, int i);
+// -------------------
+
+// in actions3.c
+void	rra(t_stack **a, int i);
+// -------------------
+
+// in create_stack.c
+void	check_type(int argc, t_stack **a,  t_stack **b);
+void	create_stack(t_stack **a, char *argv[]);
+// -------------------
 
 // in parse
-int parse(int argc, char *argv[]);
-int ft_atoi(const char *str);
+int		parse(int argc, char *argv[]);
+int		ft_atoi(const char *str);
+// -------------------
+
+// in sort.c
+void	simple(t_stack **a);
+void	cinco(t_stack **a, t_stack **b);
 // -------------------
 
 #endif
