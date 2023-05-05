@@ -11,10 +11,15 @@ SRC =	push_swap.c	\
 		actions3.c	\
 		create_stack.c	\
 		error.c		\
+		lists.c		\
 		parse.c 	\
+		radix.c		\
 		sort.c		\
+		utils.c		\
 
-OBJ = $(SRC:.c=.o)
+OBJ_DIR = obj
+SRCS = $(addprefix src/, $(SRC))
+OBJS = $(patsubst src/%, $(OBJ_DIR)/%, $(SRCS:%.c=%.o))
 
 # Reset
 Color_Off='\033[0m'       # Text Reset
@@ -96,17 +101,23 @@ HOWTO = @echo ${IRed}"To run the program do: ./${NAME} <args>"${Color_Off}
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 	$(MSG1)
 	${HOWTO}
 
+$(OBJ_DIR)/%.o: $(SRCS)
+		@mkdir -p $(OBJ_DIR)
+		@$(CC) $(CFLAGS) -o $@ -c $<
 clean:
-	@/bin/rm -f $(OBJ) $(B_OBJ)
+	@/bin/rm -rf $(OBJ_DIR)
 	$(MSG2)
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	@/bin/rm -rf $(NAME) ${OBJ_DIR}
 	$(MSG3)
+
+val:
+	@valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./pushSwap 2 3 5 4 1
 
 re: fclean all
