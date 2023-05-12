@@ -6,7 +6,7 @@
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:19:50 by dimarque          #+#    #+#             */
-/*   Updated: 2023/05/05 15:30:01 by dimarque         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:04:07 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_error(void)
 {
-	write(1, "ERROR\n", 6);
+	write(1, "Error\n", 6);
 }

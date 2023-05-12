@@ -6,7 +6,7 @@
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:22:00 by dimarque          #+#    #+#             */
-/*   Updated: 2023/05/05 17:58:05 by dimarque         ###   ########.fr       */
+/*   Updated: 2023/05/12 15:58:47 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	check_type(int argc, t_stack **a,  t_stack **b)
 		simple(a);
 	else if (argc - 1 <= 5)
 		cinco(a, b);
-	/* else
-		radix(a, b); */
+	else
+		radix(a, b);
 }
 
 void	create_stack(t_stack **a, char *argv[])

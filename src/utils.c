@@ -6,7 +6,7 @@
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:07:58 by dimarque          #+#    #+#             */
-/*   Updated: 2023/05/05 17:11:07 by dimarque         ###   ########.fr       */
+/*   Updated: 2023/05/12 15:11:54 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,19 @@ void	freestack(t_stack **stack)
 		free(tmp);
 	}
 	free(stack);
+}
+
+int	check_sorted(t_stack **stack)
+{
+	t_stack	*buf;
+
+	buf = (*stack);
+	while (buf && buf->next)
+	{
+		if (buf->data < buf->next->data)
+			buf = buf->next;
+		else
+			return (0);
+	}
+	return (1);
 }

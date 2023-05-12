@@ -6,7 +6,7 @@
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:58:39 by dimarque          #+#    #+#             */
-/*   Updated: 2023/05/05 16:19:17 by dimarque         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:06:55 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	parse(int argc, char *argv[])
 	}
 	if ((sorted(argc, argv)))
 		return (0);
-	while (j < argc - 1)
+	while (j < argc)
 	{
 		if (!(ft_strcmp(argv[j], "0")))
 			j++;
