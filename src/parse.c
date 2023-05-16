@@ -6,7 +6,7 @@
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:58:39 by dimarque          #+#    #+#             */
-/*   Updated: 2023/05/12 17:06:55 by dimarque         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:26:15 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,15 @@ int	ft_atoi(const char *str)
 			sign *= -1;
 		i++;
 	}
-	while (str[i] != '\0' && (str[i] >= 48 && str[i] <= 57))
+	while (str[i] != '\0')
 	{
+		if (!(str[i] >= 48 && str[i] <= 57))
+			ft_error();
 		numb = numb * 10 + str[i] - 48;
 		i++;
 	}
 	if (numb * sign > INT_MAX || numb * sign < INT_MIN)
-		return (0);
+		ft_error();
 	return (numb * sign);
 }
 
@@ -98,21 +100,12 @@ int	parse(int argc, char *argv[])
 
 	j = 1;
 	if (ft_dup(argc, argv) != 0)
-	{
 		ft_error();
-		return (0);
-	}
 	if ((sorted(argc, argv)))
 		return (0);
 	while (j < argc)
 	{
-		if (!(ft_strcmp(argv[j], "0")))
-			j++;
-		if (!(ft_atoi(argv[j])))
-		{
-			ft_error();
-			return (0);
-		}
+		ft_atoi(argv[j]);
 		j++;
 	}
 	return (1);

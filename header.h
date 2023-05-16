@@ -6,7 +6,7 @@
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:19:34 by dimarque          #+#    #+#             */
-/*   Updated: 2023/05/05 17:57:14 by dimarque         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:33:10 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,24 +47,26 @@ void	rra(t_stack **a, int i);
 // -------------------
 
 // in create_stack.c
-void	check_type(int argc, t_stack **a,  t_stack **b);
-void	create_stack(t_stack **a, char *argv[]);
+void	check_type(int argc, t_stack **a, t_stack **b);
+void	create_stack(t_stack **a, char *argv[], int argc);
 // -------------------
 
 // in lists.c
-int	ft_lstsize(t_stack **lst);
+int		ft_lstsize(t_stack **lst);
 t_stack	*ft_lstnew(int content);
 t_stack	*ft_lstlast(t_stack *lst);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 // -------------------
 
 // in parse
+int		sorted(int argc, char *argv[]);
 int		parse(int argc, char *argv[]);
 int		ft_atoi(const char *str);
 // -------------------
 
 // in radix.c
-int	bin_converter(int dec);
+int		bin_converter(int dec, int i);
+void	radix(t_stack **a, t_stack **b);
 // -------------------
 
 // in sort.c
@@ -73,7 +75,7 @@ void	cinco(t_stack **a, t_stack **b);
 // -------------------
 
 // in utils.c
-int	ft_lstsize(t_stack **lst);
+int		check_sorted(t_stack **stack);
 void	freestack(t_stack **stack);
 // -------------------
 

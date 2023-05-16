@@ -118,6 +118,6 @@ fclean: clean
 	$(MSG3)
 
 val:
-	@valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./pushSwap 2 3 5 4 1
+	@valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./pushSwap 2 3 5 1 -655 74 8 -9
 
 re: fclean all

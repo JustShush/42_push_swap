@@ -6,7 +6,7 @@
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:07:58 by dimarque          #+#    #+#             */
-/*   Updated: 2023/05/12 15:11:54 by dimarque         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:49:53 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	freestack(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
-	while(*stack)
+	while (*stack)
 	{
 		tmp = *stack;
 		*stack = (*stack)->next;
